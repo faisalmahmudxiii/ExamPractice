@@ -34,12 +34,14 @@ public class QuestionDBHelper extends SQLiteOpenHelper {
         return instance;
     }
 
+
+
     @Override
     public void onCreate(SQLiteDatabase db) {
-        db.execSQL(DBQueryManeger.CREATE_TABLE_FOR_BANGLA);
-        db.execSQL(DBQueryManeger.CREATE_TABLE_FOR_ENGLISH);
-        db.execSQL(DBQueryManeger.CREATE_TABLE_FOR_MATH);
-        db.execSQL(DBQueryManeger.CREATE_TABLE_FOR_GENERAL);
+       // db.execSQL(DBQueryManeger.CREATE_TABLE_FOR_BANGLA);
+      //  db.execSQL(DBQueryManeger.CREATE_TABLE_FOR_ENGLISH);
+     //   db.execSQL(DBQueryManeger.CREATE_TABLE_FOR_MATH);
+     //   db.execSQL(DBQueryManeger.CREATE_TABLE_FOR_GENERAL);
     }
 
     @Override
@@ -111,8 +113,8 @@ public class QuestionDBHelper extends SQLiteOpenHelper {
 
             while (!cursor.isAfterLast()){
 
-                int id=cursor.getInt(cursor.getColumnIndex(UtilityManager.COLUMN_ID));
-                String questionType=cursor.getString(cursor.getColumnIndex(UtilityManager.COLUMN_QUESTION_TYPE));
+              //  int id=cursor.getInt(cursor.getColumnIndex(UtilityManager.COLUMN_ID));
+               // String questionType=cursor.getString(cursor.getColumnIndex(UtilityManager.COLUMN_QUESTION_TYPE));
                 String question=cursor.getString(cursor.getColumnIndex(UtilityManager.COLUMN_QUESTION));
                 String option1=cursor.getString(cursor.getColumnIndex(UtilityManager.COLUMN_OPTION1));
                 String option2=cursor.getString(cursor.getColumnIndex(UtilityManager.COLUMN_OPTION2));
@@ -121,8 +123,8 @@ public class QuestionDBHelper extends SQLiteOpenHelper {
                 String rightAnswer=cursor.getString(cursor.getColumnIndex(UtilityManager.COLUMN_RIGHT_OPTION));
 
                 QuestionModel questionModel=new QuestionModel();
-                questionModel.setId(id);
-                questionModel.setQuestionType(questionType);
+              //  questionModel.setId(id);
+              //  questionModel.setQuestionType(questionType);
                 questionModel.setQuestion(question);
                 questionModel.setOption1(option1);
                 questionModel.setOption2(option2);

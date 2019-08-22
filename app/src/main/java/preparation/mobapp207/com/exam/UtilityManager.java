@@ -18,17 +18,18 @@ public class UtilityManager {
     public static final String ENGLISH_TABLE_NAME = "english_question";
     public static final String MATH_TABLE_NAME = "math_question";
     public static final String GENERAL_TABLE_NAME = "general_question";
+    public static final String GENERAL = "Sheet1";
     public static final String TEXT_TYPE = " TEXT";
 
     //Column
     public static final String COLUMN_ID = "id";
     public static final String COLUMN_QUESTION_TYPE = "questionType";
-    public static final String COLUMN_QUESTION = "question";
-    public static final String COLUMN_OPTION1 = "option1";
-    public static final String COLUMN_OPTION2 = "option2";
-    public static final String COLUMN_OPTION3 = "option3";
-    public static final String COLUMN_OPTION4 = "option4";
-    public static final String COLUMN_RIGHT_OPTION = "right_option";
+    public static final String COLUMN_QUESTION = "Question";
+    public static final String COLUMN_OPTION1 = "Option1";
+    public static final String COLUMN_OPTION2 = "Option2";
+    public static final String COLUMN_OPTION3 = "Option3";
+    public static final String COLUMN_OPTION4 = "Option4";
+    public static final String COLUMN_RIGHT_OPTION = "RightAnswer";
 
 
 
