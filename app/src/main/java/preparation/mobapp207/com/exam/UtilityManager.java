@@ -2,6 +2,15 @@ package preparation.mobapp207.com.exam;
 
 public class UtilityManager {
 
+    /**************************************************************** Testing Tools *********************************/
+    public static  boolean isTableDrop=false;
+    public static  String XlsFileName="ExamData.xls";
+
+
+    /**************************************************************** Activity Value *********************************/
+    public static int SPLASH_DELAYTIME=5000;
+
+    /**************************************************************** DATA FOR APP *********************************/
     public  static  String QUESTION_TYPE_BANGLA="BANGLA";
     public  static  String QUESTION_TYPE_ENGLISH="ENGLISH";
     public  static  String QUESTION_TYPE_MATH="MATH";
@@ -24,12 +33,12 @@ public class UtilityManager {
     //Column
     public static final String COLUMN_ID = "id";
     public static final String COLUMN_QUESTION_TYPE = "questionType";
-    public static final String COLUMN_QUESTION = "Question";
-    public static final String COLUMN_OPTION1 = "Option1";
-    public static final String COLUMN_OPTION2 = "Option2";
-    public static final String COLUMN_OPTION3 = "Option3";
-    public static final String COLUMN_OPTION4 = "Option4";
-    public static final String COLUMN_RIGHT_OPTION = "RightAnswer";
+    public static final String COLUMN_QUESTION = "question";
+    public static final String COLUMN_OPTION1 = "option1";
+    public static final String COLUMN_OPTION2 = "option2";
+    public static final String COLUMN_OPTION3 = "option3";
+    public static final String COLUMN_OPTION4 = "option4";
+    public static final String COLUMN_RIGHT_OPTION = "right_answer";
 
 
 

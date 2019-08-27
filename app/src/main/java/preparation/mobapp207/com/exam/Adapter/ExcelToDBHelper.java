@@ -3,32 +3,45 @@ package preparation.mobapp207.com.exam.Adapter;
 import android.content.Context;
 import android.util.Log;
 
-import com.ajts.androidmads.library.ExcelToSQLite;
-
 import preparation.mobapp207.com.exam.UtilityManager;
 
 public class ExcelToDBHelper {
 
     private static  String TAG="ExcelToDBHelper";
 
-    public ExcelToDBHelper(Context context) {
+    private Context context;
 
-        ExcelToSQLite excelToSQLite = new ExcelToSQLite(context, UtilityManager.DATABASE_NAME, true);
-        excelToSQLite.importFromAsset("বাংলা সাহিত্যের ইতিহাস ১.xls", new ExcelToSQLite.ImportListener() {
+    public ExcelToDBHelper(Context context) {
+        this.context=context;
+
+
+    }
+
+    public void SetXlsFilePath(String filePath){
+        UtilityManager.XlsFileName=filePath;
+    }
+    public String GetXlsFilePath(){
+        return UtilityManager.XlsFileName;
+    }
+
+    public void ImportExcelData(){
+        ExcelToSQLite excelToSQLite = new ExcelToSQLite(context, true);
+        excelToSQLite.importFromAsset(UtilityManager.XlsFileName, new ExcelToSQLite.ImportListener() {
             @Override
             public void onStart() {
-                Log.d(TAG,"One Create");
+                Log.d(TAG,"Loading Start");
             }
 
             @Override
-            public void onCompleted(String dbName) {
-                Log.d(TAG,"One Completed");
+            public void onCompleted(boolean isCompleted) {
+                Log.d(TAG,"Loading Completed : "+isCompleted);
             }
 
             @Override
             public void onError(Exception e) {
-                Log.d(TAG,"One Error");
+                Log.d(TAG,"Loading Completed : "+e);
             }
         });
     }
+
 }

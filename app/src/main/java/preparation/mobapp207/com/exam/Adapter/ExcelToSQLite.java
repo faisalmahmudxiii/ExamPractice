@@ -37,12 +37,10 @@ public class ExcelToSQLite {
 
     private Context mContext;
     private SQLiteDatabase database;
-    private String mDbName;
     private boolean dropTable = false;
 
-    public ExcelToSQLite(Context context,String dbName) {
+    public ExcelToSQLite(Context context) {
         mContext = context;
-        mDbName = dbName;
         try {
             database = QuestionDBHelper.getInstance(context).getWritableDatabase(UtilityManager.DB_PASS);
         } catch (Exception e) {
@@ -50,10 +48,9 @@ public class ExcelToSQLite {
         }
     }
 
-    public ExcelToSQLite(Context context, String dbName, boolean dropTable) {
+    public ExcelToSQLite(Context context, boolean dropTable) {
         mContext = context;
-      //  mDbName = dbName;
-        this.dropTable = dropTable;
+        this.dropTable=dropTable;
         try {
             database = QuestionDBHelper.getInstance(context).getWritableDatabase(UtilityManager.DB_PASS);
         } catch (Exception e) {
@@ -61,7 +58,7 @@ public class ExcelToSQLite {
         }
     }
 
-    public void importFromAsset(final String assetFileName, final com.ajts.androidmads.library.ExcelToSQLite.ImportListener listener) {
+    public void importFromAsset(final String assetFileName, final ImportListener listener) {
         if (listener != null) {
             listener.onStart();
         }
@@ -74,7 +71,7 @@ public class ExcelToSQLite {
                         handler.post(new Runnable() {
                             @Override
                             public void run() {
-                                listener.onCompleted(mDbName);
+                                listener.onCompleted(true);
                             }
                         });
                     }
@@ -96,11 +93,11 @@ public class ExcelToSQLite {
         }).start();
     }
 
-    public void importFromFile(String filePath, com.ajts.androidmads.library.ExcelToSQLite.ImportListener listener) {
+    public void importFromFile(String filePath, ImportListener listener) {
         importFromFile(new File(filePath), listener);
     }
 
-    private void importFromFile(final File file, final com.ajts.androidmads.library.ExcelToSQLite.ImportListener listener) {
+    private void importFromFile(final File file, final ImportListener listener) {
         if (listener != null) {
             listener.onStart();
         }
@@ -113,7 +110,7 @@ public class ExcelToSQLite {
                         handler.post(new Runnable() {
                             @Override
                             public void run() {
-                                listener.onCompleted(mDbName);
+                                listener.onCompleted(true);
                             }
                         });
                     }
@@ -202,18 +199,25 @@ public class ExcelToSQLite {
                     throw new RuntimeException("Insert value failed!");
                 }
             }
-        } finally {
+            if (cursor != null)
+                cursor.close();
+        }catch (Exception e){
+
+            if (cursor != null)
+                cursor.close();
+        }finally {
             if (cursor != null)
                 cursor.close();
         }
+
     }
 
     public interface ImportListener {
-        void onStart();
+       public void onStart();
 
-        void onCompleted(String dbName);
+        public void onCompleted(boolean isCompleted);
 
-        void onError(Exception e);
+        public void onError(Exception e);
     }
 
 }
