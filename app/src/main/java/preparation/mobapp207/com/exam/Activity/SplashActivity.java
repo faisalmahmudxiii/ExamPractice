@@ -11,6 +11,7 @@ import net.sqlcipher.database.SQLiteDatabase;
 
 import java.util.List;
 
+import preparation.mobapp207.com.exam.Adapter.ExcelToDBHelper;
 import preparation.mobapp207.com.exam.Model.QuestionModel;
 import preparation.mobapp207.com.exam.R;
 import preparation.mobapp207.com.exam.Service.QuestionServiceImpl;
@@ -28,8 +29,8 @@ public class SplashActivity extends AppCompatActivity {
 
         DelayForSecond(UtilityManager.SPLASH_DELAYTIME);
 
-
-       // new ExcelToDBHelper(this).ImportExcelData();
+        //Test
+        new ExcelToDBHelper(this).ImportExcelData();
         List<QuestionModel> questionModels = new QuestionServiceImpl().GetQuestion(this);
 
 

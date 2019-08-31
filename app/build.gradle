@@ -6,6 +6,7 @@ android {
         applicationId "preparation.mobapp207.com.exam"
         minSdkVersion 19
         targetSdkVersion 28
+        multiDexEnabled true
         versionCode 1
         versionName "1.0.0"
         testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
@@ -81,5 +82,5 @@ dependencies {
 
     // Test helpers
     testImplementation "androidx.room:room-testing:$room_version"
-
+    implementation 'com.android.support:multidex:1.0.3'
 }
