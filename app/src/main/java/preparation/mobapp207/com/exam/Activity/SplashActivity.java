@@ -33,7 +33,7 @@ public class SplashActivity extends AppCompatActivity {
         new ExcelToDBHelper(this).ImportExcelData();
         List<QuestionModel> questionModels = new QuestionServiceImpl().GetQuestion(this);
 
-
+//Hellow Alu
 
         for(QuestionModel item : questionModels){
             Log.d(TAG,item.getQuestion());

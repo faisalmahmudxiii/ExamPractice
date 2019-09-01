@@ -3,7 +3,7 @@ package preparation.mobapp207.com.exam;
 public class UtilityManager {
 
     /**************************************************************** Testing Tools *********************************/
-    public static  boolean isTableDrop=false;
+    public static  boolean isTableDrop=true;
     public static  String XlsFileName="ExamData.xls";
 
 
